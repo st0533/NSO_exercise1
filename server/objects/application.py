@@ -1,6 +1,5 @@
-from objects.session import Session
-from data import *
-
+from server.data import *
+import json
 class Application:
     applicationCounter = 0
 
@@ -10,17 +9,14 @@ class Application:
         self.listOfSession = []  # list of session to this app
 
 
-    def removeAllMessages(self):
+    def removeMessages(self):
         for s in self.listOfSession:
             s.listOfMessage = []  # remove all messages from all sessions
 
     def addSession(self,session):  #create new session
         self.listOfSession.append(session)
     def getMessages(self):
-        messages={}
-        counter=0
+        messaegs=""
         for s in self.listOfSession:
-            messages[counter]=s.listOfMessage
-            counter+=1
-        return messages
-
+            messaegs+=s.getMessages()
+        return messaegs

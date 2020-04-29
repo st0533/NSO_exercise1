@@ -1,6 +1,6 @@
-from objects.application import Application
-from objects.session import Session
-from objects.message import Message
+from server.objects.application import Application
+from server.objects.session import *
+from server.objects.message import *
 
 listOfApplication = []
 def getMessage(messageId):
@@ -31,13 +31,13 @@ ses4=Session()
 ses5=Session()
 ses6=Session()
 
-app1.addSession(ses1)
-app1.addSession(ses2)
-app1.addSession(ses3)
 
 app2.addSession(ses4)
 app2.addSession(ses5)
 app2.addSession(ses6)
+app1.addSession(ses1)
+app1.addSession(ses2)
+app1.addSession(ses3)
 
 
 #messages
