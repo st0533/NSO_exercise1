@@ -9,6 +9,7 @@ def test_GetMessage_by_messagId():
     response = requests.get("http://127.0.0.1:5000/GetMessage?messageId=aaa")
     assert response.status_code == 200
 
+
 def test_DeleteMessage_by_applicationId():
     response = requests.get("http://127.0.0.1:5000/DeleteMessage?applicationId=1")
     assert response.status_code == 200
