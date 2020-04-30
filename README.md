@@ -7,7 +7,7 @@ when my server starts to run it takes data from JSON file and work offline, (sav
 have 3 objects: application,session,messages
 
 to run this program:
-in cmd write: python [ADDRESS TO SERVERFLASK.PY]
+run file serverFlsak.py
 copy the {host_ip}:{port}(example:127.0.0.1:5000) to browser
 and add a method
 you can see example in file test_server.py
