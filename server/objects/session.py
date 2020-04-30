@@ -1,4 +1,7 @@
-class Session:
+from server.objects.objectInterface import IInterface
+
+
+class Session(IInterface):
     sessionCounter = 0
     def __init__(self,sessionId=None,listOfMessage=[]):
         if sessionId==None:

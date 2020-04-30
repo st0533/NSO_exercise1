@@ -30,11 +30,11 @@ listOfApplication=convertData()
 print(listOfApplication)
 def updateData():
     dict={}
-    with open('data.json', 'w') as outfile:
-        for i in listOfApplication:
-            dict['applicationId'] = i.applicationId
-            dict['listOfSession'] = ast.literal_eval(i.getSession())
-            json.dump(dict, outfile)
+    # with open('data.json', 'w') as outfile:
+    #     for i in listOfApplication:
+    #         dict['applicationId'] = i.applicationId
+    #         dict['listOfSession'] = ast.literal_eval(i.getSession())
+    #         json.dump(dict, outfile)
 
 
 @app.route('/AddMessage', methods=["GET","POST"])
@@ -66,13 +66,13 @@ def getMessage():
         sessionId=int(sessionId)
         for a in listOfApplication:
             for s in a.listOfSession:
-                if s.sessionId==sessionId:
+                if s.sessionId==str(sessionId):
                     return json.dumps(s.getMessages())
     if messageId:
         for a in listOfApplication:
             for s in a.listOfSession:
                 for m in s.listOfMessage:
-                    if m.messageId==messageId:
+                    if m.messageId==str(messageId):
                         return json.dumps(m.getMessages())
 
 
@@ -89,7 +89,6 @@ def deleteMessage():
                 updateData()
                 return "seccsess"
     if sessionId:
-        sessionId=int(sessionId)
         for a in listOfApplication:
             for s in a.listOfSession:
                 if s.sessionId==sessionId:
@@ -100,7 +99,7 @@ def deleteMessage():
         for a in listOfApplication:
             for s in a.listOfSession:
                 for m in s.listOfMessage:
-                    if m.mlessageId==messageId:
+                    if m.messageId==messageId:
                         s.listOfMessage.remove(m)
                         updateData()
                         return "seccsess"

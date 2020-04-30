@@ -1,4 +1,7 @@
-class Application:
+from server.objects.objectInterface import IInterface
+
+
+class Application(IInterface):
     applicationCounter = 0
 
     def __init__(self,applicationId=None,listOfSession=[]):

@@ -10,6 +10,7 @@ to run this program:
 in cmd write: python [ADDRESS TO SERVERFLASK.PY]
 copy the {host_ip}:{port}(example:127.0.0.1:5000) to browser
 and add a method
+you can see example in file test_server.py
 
 the methods:
 AddMessage
@@ -21,6 +22,6 @@ http://{host_ip}:{port}/GetMessage?sessionId=[SESSION_ID]
 http://{host_ip}:{port}/GetMessage?messageId=[MESSAGEID]
 
 DeleteMessage:
-http://{host_ip}:{port}/DeleteMessage?applicationId= APPLICATION_ID]
+http://{host_ip}:{port}/DeleteMessage?applicationId= [APPLICATION_ID]
 http://{host_ip}:{port}/DelteMessage?sessionId=[SESSION_ID]
 http://{host_ip}:{port}/DeleteMessage?messageId=[MESSAGEID]

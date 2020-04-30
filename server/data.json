@@ -1,1 +1,167 @@
-{"applicationId": 1, "listOfSession": [{"sessionId": "1", "messages": [[{"messageId": "aaa", "content": "how are you?", "participants": ["david", "ron"]}, {"messageId": "bb", "content": "fine", "participants": ["david", "ron"]}, {"messageId": "ccc", "content": "what are you doing?", "participants": ["gad", "moshe"]}]]}, {"sessionId": "2", "messages": [[{"messageId": "ddd", "content": "all fine?", "participants": ["avi", "amit"]}, {"messageId": "eee", "content": "are you OK?", "participants": ["noa", "rachel"]}, {"messageId": "fff", "content": "thank you", "participants": ["sara", "lea"]}, {"messageId": "bbbb", "content": "Hi, how are you today?", "participants": ["ani aviv", "hhhhh cohen"]}, {"messageId": "bbbb", "content": "Hi, how are you today?", "participants": ["avi aviv", "moshe cohen"]}]]}, {"sessionId": "3", "messages": [[{"messageId": "ggg", "content": "please, help!", "participants": ["haddas", "lev"]}, {"messageId": "hhh", "content": "s.o.s", "participants": ["gad", "moshe"]}]]}]}{"applicationId": 2, "listOfSession": [{"sessionId": "4", "messages": [[{"messageId": "iiii", "content": "can you help me?", "participants": ["yaakov", "rachel"]}, {"messageId": "jjj", "content": "i love you!", "participants": ["zeev", "chaim"]}, {"messageId": "kkk", "content": "I will go", "participants": ["arie", "shani"]}]]}, {"sessionId": "5", "messages": [[{"messageId": "lll", "content": "dont forget me!!", "participants": [["david", "namma"]]}, {"messageId": "mmm", "content": "do you want that?", "participants": ["refael", "dov"]}]]}, {"sessionId": "6", "messages": [[{"messageId": "nnn", "content": "listen to me", "participants": ["avi", "amit"]}, {"messageId": "ooo", "content": "are you finish?", "participants": ["noa", "rachel"]}]]}]}
+{"listOfApplication":
+[{
+  "applicationId": 1,
+  "listOfSession": [
+    {
+      "sessionId": "1",
+      "messages": [
+        {
+          "messageId": "aaa",
+          "content": "how are you?",
+          "participants": [
+            "david",
+            "ron"
+          ]
+        },
+        {
+          "messageId": "bb",
+          "content": "fine",
+          "participants": [
+            "david",
+            "ron"
+          ]
+        },
+        {
+          "messageId": "ccc",
+          "content": "what are you doing?",
+          "participants": [
+            "gad",
+            "moshe"
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "2",
+      "messages":
+      [
+          {
+            "messageId": "ddd",
+            "content": "all fine?",
+            "participants": [
+              "avi",
+              "amit"
+            ]
+          },
+          {
+            "messageId": "eee",
+            "content": "are you OK?",
+            "participants": [
+              "noa",
+              "rachel"
+            ]
+          },
+          {
+            "messageId": "fff",
+            "content": "thank you",
+            "participants": [
+              "sara",
+              "lea"
+            ]
+          }
+      ]
+    },
+    {
+      "sessionId": "3",
+      "messages":
+      [
+          {
+            "messageId": "ggg",
+            "content": "please, help!",
+            "participants": [
+              "haddas",
+              "lev"
+            ]
+          },
+          {
+            "messageId": "hhh",
+            "content": "s.o.s",
+            "participants": [
+              "gad",
+              "moshe"
+            ]
+          }
+      ]
+    }
+  ]
+},
+{
+  "applicationId": 2,
+  "listOfSession": [
+    {
+      "sessionId": "4",
+      "messages": [
+        {
+          "messageId": "iiii",
+          "content": "can you help me?",
+          "participants": [
+            "yaakov",
+            "rachel"
+          ]
+        },
+        {
+          "messageId": "jjj",
+          "content": "i love you!",
+          "participants": [
+            "zeev",
+            "chaim"
+          ]
+        },
+        {
+          "messageId": "kkk",
+          "content": "I will go",
+          "participants": [
+            "arie",
+            "shani"
+          ]
+        }
+      ]
+
+    },
+    {
+      "sessionId": "5",
+      "messages": [
+          {
+            "messageId": "lll",
+            "content": "dont forget me!!",
+            "participants": [
+              [
+                "david",
+                "namma"
+              ]
+            ]
+          },
+          {
+            "messageId": "mmm",
+            "content": "do you want that?",
+            "participants": [
+              "refael",
+              "dov"
+            ]
+          }
+        ]
+    },
+    {
+      "sessionId": "6",
+      "messages": [
+        {
+          "messageId": "nnn",
+          "content": "listen to me",
+          "participants": [
+            "avi",
+            "amit"
+          ]
+        },
+        {
+          "messageId": "ooo",
+          "content": "are you finish?",
+          "participants": [
+            "noa",
+            "rachel"
+          ]
+        }
+      ]
+    }
+
+  ]
+}]}
