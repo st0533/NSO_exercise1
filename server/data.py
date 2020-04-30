@@ -1,6 +1,8 @@
-from server.objects.application import Application
-from server.objects.session import *
+import ast
+import json
+from server.objects.application import *
 from server.objects.message import *
+from server.objects.session import *
 
 listOfApplication = []
 def getMessage(messageId):
@@ -18,8 +20,8 @@ def removeMessage(messageId):
                     return
 
 #applications:
-app1=Application()
-app2=Application()
+app1= Application()
+app2= Application()
 listOfApplication.append(app1)
 listOfApplication.append(app2)
 
@@ -52,7 +54,7 @@ mes8=Message("hhh","s.o.s",["gad","moshe"])
 mes9=Message("iiii","can you help me?",["yaakov","rachel"])
 mes10=Message("jjj","i love you!",["zeev","chaim"])
 mes11=Message("kkk","I will go",["arie","shani"])
-mes12=Message("lll","don't forget me!!",[["david","namma"]])
+mes12=Message("lll","dont forget me!!",[["david","namma"]])
 mes13=Message("mmm","do you want that?",["refael","dov"])
 mes14=Message("nnn","listen to me",["avi","amit"])
 mes15=Message("ooo","are you finish?",["noa","rachel"])
@@ -77,3 +79,11 @@ ses5.addMessage(mes13)
 
 ses6.addMessage(mes14)
 ses6.addMessage(mes15)
+dict={}
+#create json file
+with open('data.json', 'w') as outfile:
+    for i in listOfApplication:
+        tryd=i.getMessages()
+        dict['applicationId']=i.applicationId
+        dict['listOfSession']=ast.literal_eval(i.getSession())
+        json.dump(dict, outfile)

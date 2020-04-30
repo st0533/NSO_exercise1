@@ -1,18 +1,40 @@
-from flask import Flask
-from flask_cors import CORS
-from flask import request, jsonify
-import json
 import ast
+import json
 
-from server.data import *
+from flask import Flask
+from flask import request
+from flask_cors import CORS
+
+from server.objects.application import *
+from server.objects.message import *
+from server.objects.session import *
 
 app = Flask('serverF')
 CORS(app)
-
-
-@app.route('/GET', methods=["GET"])
-def get():
-    return "hello world"
+def convertData():
+    db = {}
+    with open('data.json', 'r') as outfile:
+        db = json.load(outfile)
+    listOfApplication = db['listOfApplication']
+    res=[]
+    for a in listOfApplication:
+            sessions = []
+            for s in a["listOfSession"]:
+                messages = []
+                for m in s["messages"]:
+                    messages.append(Message(m["messageId"], m["content"], m["participants"]))
+                sessions.append(Session(s["sessionId"], messages))
+            res.append(Application(a["applicationId"], sessions))
+    return res
+listOfApplication=convertData()
+print(listOfApplication)
+def updateData():
+    dict={}
+    with open('data.json', 'w') as outfile:
+        for i in listOfApplication:
+            dict['applicationId'] = i.applicationId
+            dict['listOfSession'] = ast.literal_eval(i.getSession())
+            json.dump(dict, outfile)
 
 
 @app.route('/AddMessage', methods=["GET","POST"])
@@ -21,22 +43,24 @@ def addMessage():
     for a in listOfApplication:
         if a.applicationId == int(data['application_id']):
             for s in a.listOfSession:
-                if s.sessionId == data['session_id']:
+                if int(s.sessionId) == data['session_id']:
                     m=Message(data['message_id'], data['content'], data['participants'])
-                    s.addMessage(m)
+                    s.listOfMessage.append(m)
+                    updateData()
                     return "added"
     return "opssssssss"
 
 
 @app.route('/GetMessage', methods=["get"])
 def getMessage():
+
     applicationId = request.args.get('applicationId')
     sessionId=request.args.get('sessionId')
     messageId=request.args.get('messageId')
     if applicationId:
         applicationId=int(applicationId)
         for a in listOfApplication:
-            if a.applicationId == applicationId:
+            if a.applicationId==applicationId:
                 return json.dumps(a.getMessages())
     if sessionId:
         sessionId=int(sessionId)
@@ -62,6 +86,7 @@ def deleteMessage():
         for a in listOfApplication:
             if a.applicationId == applicationId:
                 a.removeMessages()
+                updateData()
                 return "seccsess"
     if sessionId:
         sessionId=int(sessionId)
@@ -69,6 +94,7 @@ def deleteMessage():
             for s in a.listOfSession:
                 if s.sessionId==sessionId:
                     s.removeMessages()
+                    updateData()
                     return "seccsess"
     if messageId:
         for a in listOfApplication:
@@ -76,7 +102,9 @@ def deleteMessage():
                 for m in s.listOfMessage:
                     if m.mlessageId==messageId:
                         s.listOfMessage.remove(m)
+                        updateData()
                         return "seccsess"
 
 if __name__ == '__main__':
     app.run(threaded=True)
+

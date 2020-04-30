@@ -1,12 +1,13 @@
-from server.data import *
-import json
 class Application:
     applicationCounter = 0
 
-    def __init__(self):
-        Application.applicationCounter += 1
-        self.applicationId = Application.applicationCounter
-        self.listOfSession = []  # list of session to this app
+    def __init__(self,applicationId=None,listOfSession=[]):
+        if applicationId==None:
+            Application.applicationCounter += 1
+            self.applicationId = Application.applicationCounter
+        else:
+            self.applicationId=applicationId
+        self.listOfSession = listOfSession  # list of session to this app
 
 
     def removeMessages(self):
@@ -16,7 +17,15 @@ class Application:
     def addSession(self,session):  #create new session
         self.listOfSession.append(session)
     def getMessages(self):
-        messaegs=""
+        messages=""
         for s in self.listOfSession:
-            messaegs+=s.getMessages()
-        return messaegs
+            messages+=s.getMessages()+","
+        return messages[0:-1]
+    def getSession(self):
+        messages = "["
+        for s in self.listOfSession:
+            messages += "{'sessionId':'" + str(s.sessionId) + "','messages':["
+            messages += str(eval(s.getMessages())) + "]},"
+        messages = messages[0:-1] + "]"
+        return messages
+

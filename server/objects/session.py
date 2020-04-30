@@ -1,12 +1,12 @@
-from server.objects import message
-from server.data import *
-import json
 class Session:
     sessionCounter = 0
-    def __init__(self):
-        Session.sessionCounter += 1
-        self.sessionId = Session.sessionCounter
-        self.listOfMessage = []
+    def __init__(self,sessionId=None,listOfMessage=[]):
+        if sessionId==None:
+            Session.sessionCounter += 1
+            self.sessionId = Session.sessionCounter
+        else:
+            self.sessionId=sessionId
+        self.listOfMessage = listOfMessage
 
     def addMessage(self,message):  # add new message
         self.listOfMessage.append(message)
@@ -14,8 +14,8 @@ class Session:
     def getMessages(self):
         messages=""
         for m in self.listOfMessage:
-            messages=messages+str(m.getMessages())
-        return messages
+            messages+=str(m.getMessages())+","
+        return messages[0:-1]
 
     def removeMessages(self):
         self.listOfMessage = []

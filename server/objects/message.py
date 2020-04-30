@@ -1,5 +1,3 @@
-from server.data import *
-import json
 class Message:
     def __init__(self,messageId,content,participants):
         self.messageId=messageId
