@@ -25,3 +25,7 @@ DeleteMessage:
 http://{host_ip}:{port}/DeleteMessage?applicationId= [APPLICATION_ID]
 http://{host_ip}:{port}/DelteMessage?sessionId=[SESSION_ID]
 http://{host_ip}:{port}/DeleteMessage?messageId=[MESSAGEID]
+
+
+my name is:
+Ester Katz
