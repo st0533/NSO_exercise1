@@ -27,5 +27,13 @@ http://{host_ip}:{port}/DelteMessage?sessionId=[SESSION_ID]
 http://{host_ip}:{port}/DeleteMessage?messageId=[MESSAGEID]
 
 
+
+
+more:
+in bootcamp with google by kamatech,I developed Website extension that can get id image,
+and fill the field automatically. using python(flask), google api ocr, google cloud.
+you can see the server here:
+https://github.com/IdetectTeam/IDetect/tree/master/server
+
 my name is:
 Ester Katz
